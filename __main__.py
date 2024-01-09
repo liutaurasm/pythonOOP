@@ -3,7 +3,7 @@ from controllers.controler_registry import ControlerRegistry
 from controllers.weather_controller import WeatherController
 
 
-ControlerRegistry.register(ControlerRegistry, "/hello", WeatherController())
+ControlerRegistry.register(ControlerRegistry, "/", WeatherController())
 
 # Set the port
 port = 8000
