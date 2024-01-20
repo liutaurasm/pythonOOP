@@ -12,5 +12,3 @@ httpd = HTTPServer(('localhost', port), ControlerRegistry)
 
 print(f"Server started on localhost:{port}")
 httpd.serve_forever()
-
-

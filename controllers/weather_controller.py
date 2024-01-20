@@ -1,6 +1,7 @@
 from controllers.base_controller import BaseController
 from models.weather import Weather
 
+
 class WeatherController(BaseController):
 
     def GET(self, http):
@@ -8,14 +9,13 @@ class WeatherController(BaseController):
         weather = Weather()
         weatherData = weather.getWeatherData()
 
-        data = "In {city} now the temperature is {temp}".format(city=weatherData["name"], temp=weatherData["main"]["temp"])
-
         f = open("views/weather.html", "r")
-        html = f.read().format(city=weatherData["name"], temp=weatherData["main"]["temp"])
+        html = f.read().format(city=weatherData["name"],
+                               temp=weatherData["main"]["temp"])
 
         http.send_response(200)
         http.end_headers()
-        http.wfile.write(html.encode('utf-8'))        
+        http.wfile.write(html.encode('utf-8'))
 
     def POST(self, http):
         http.send_response(200)
